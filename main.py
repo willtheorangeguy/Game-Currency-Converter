@@ -5,7 +5,7 @@ import tkinter.messagebox as box
 # Game Price Variables
 apex = 0.50
 boombeach = 0.50
-coc = 0.50  # Clash of Clans
+coc = 0.50
 egginc = 0.50
 fortnite = 0.50
 minecraft = 0.50
@@ -23,10 +23,11 @@ smashbros = 0.50
 
 # Create Main Window
 window = Tk()
-window.title('Game Currency - Use this simple app to find how many in-game \
-turns you can get!')
-title = Label(window, text = 'Game Currency')
-titleblurb = Label(window, text = 'Enter the amount of money that you are going to pay for your turns or the worth of the item your are trading in for your turns.')
+window.title('Game Currency - Use this simple app to find how many in-game turns you can get!')
+
+title = Label(window, text = 'Game Currency', fg = "blue")
+titleblurb = Label(window, text = 'Enter the amount of money that you are '  \
+    'going to pay for your turns or the worth of the item your are trading in for your turns.')
 conversionframe = Frame(window)
 
 # Turn Calculation Functions
@@ -41,17 +42,29 @@ def calculateturns_trade():
 
 # Elements for Money Conversion
 moneyframe = Frame(conversionframe)
-moneytitle = Label(moneyframe, text = 'Cash/Credit')
-moneyblurb = Label(moneyframe, text = 'Enter the amount of money you are willing to pay:')
+moneytitle = Label(moneyframe, text = 'Cash', fg = "green")
+moneyblurb = Label(moneyframe, text = 'Enter the amount of money\nyou are willing to pay:')
 moneyentry = Entry(moneyframe)
 moneybutton = Button(moneyframe, text = 'Submit!', command = calculateturns_money)
 
+# Money Conversion Pack Statements
+moneytitle.pack(side = TOP)
+moneyblurb.pack(side = TOP)
+moneyentry.pack(side = LEFT, padx = 10)
+moneybutton.pack(side = RIGHT, padx = 10)
+
 # Elements for Trade Conversion
 tradeframe = Frame(conversionframe)
-tradetitle = Label(tradeframe, text = 'Trade')
-tradeblurb = Label(tradeframe, text = 'Enter the worth of the item you are trading as if it were brand-new:')
+tradetitle = Label(tradeframe, text = 'Trade', fg = "purple")
+tradeblurb = Label(tradeframe, text = 'Enter the worth of the item you are trading\nas if it were brand-new:')
 tradeentry = Entry(tradeframe)
 tradebutton = Button(tradeframe, text = 'Submit!', command = calculateturns_trade) 
+
+# Trade Conversion Pack Statements
+tradetitle.pack(side = TOP)
+tradeblurb.pack(side = TOP)
+tradeentry.pack(side = LEFT, padx = 10)
+tradebutton.pack(side = RIGHT, padx = 10)
 
 # Game Images
 apeximage = PhotoImage(file='img/apex_legends_logo.gif')
@@ -73,40 +86,36 @@ smashbrosimage = PhotoImage(file='img/smash_bros_logo.gif')
 
 # Game Icons, Titles & Turn Values
 blurb = Label(window, text = 'The turn numbers in the boxes below are based on the value entered above.')
-#Type 1
-type1title = Label(window, text = '2 Min In Game')
+# Type 1
+type1title = Label(window, text = '2 Minutes In Game')
 type1frame = Frame(window)
-#Apex
+
+# Apex
 apexframe = Frame(type1frame)
 apexicon = Label(apexframe, image = apeximage)
 apexname = Label(apexframe, text = 'Apex Legends')
-apexturns = Label(apexframe, text = turns, relief = 'groove')
+apexturns = Label(apexframe, text = " " + str(turns) + " ", relief = 'groove')
+apexicon.pack(side = LEFT, padx = 10)
+apexturns.pack(side = RIGHT)
+apexname.pack(side = RIGHT, padx = 5)
 
 # Pack Statements
-#Main Window
-title.pack(side = TOP)
-titleblurb.pack(side = TOP)
-conversionframe.pack(side = TOP)
-#Money Conversion
-moneytitle.pack(side = TOP)
-moneyblurb.pack(side = TOP)
-moneybutton.pack(side = RIGHT)
-moneyentry.pack(side = LEFT)
-moneyframe.pack(side = LEFT, padx = 10, pady = 10)
-#Trade Conversion
-tradetitle.pack(side = TOP)
-tradeblurb.pack(side = TOP)
-tradebutton.pack(side = RIGHT)
-tradeentry.pack(side = LEFT)
-tradeframe.pack(side = LEFT, padx = 10, pady = 10)
-#Game Titles & Turn Values
-blurb.pack(side = TOP)
-type1title.pack(side = TOP)
-type1frame.pack(side = TOP)
-apexframe.pack(side = LEFT)
-apexicon.pack(side = LEFT)
-apexname.pack(side = LEFT)
-apexturns.pack(side = LEFT)
+# Main Window
+title.grid(row = 1, column = 1, columnspan = 4)
+titleblurb.grid(row = 2, column = 1, columnspan = 4)
+conversionframe.grid(row = 3, column = 1, columnspan = 4)
+
+# Money Conversion
+moneyframe.grid(row = 4, column = 1, columnspan = 2)
+
+# Trade Conversion
+tradeframe.grid(row = 4, column = 3, columnspan = 2)
+
+# Game Titles & Turn Values
+blurb.grid(row = 5, column = 1, columnspan = 4)
+type1title.grid(row = 6, column = 1, columnspan = 2)
+type1frame.grid(row = 7, column = 1, columnspan = 2)
+apexframe.grid(row = 8, column = 1, columnspan = 1)
 
 # Sustain Window
 window.mainloop()
