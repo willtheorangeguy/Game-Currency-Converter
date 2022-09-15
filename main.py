@@ -19,7 +19,6 @@ solitaire = 0.50
 sudoku = 0.50
 mariobros = 0.50
 smashbros = 0.50
-smashbros = 0.50
 
 # Create Main Window
 window = Tk()
@@ -40,6 +39,15 @@ def calculateturns_money():
     eggturns.configure(text = int(turns))
     fortniteturns.configure(text = int(turns))
     minecraftturns.configure(text = int(turns))
+    asphaltturns.configure(text = int(turns))
+    royaleturns.configure(text = int(turns))
+    crossyturns.configure(text = int(turns))
+    hillturns.configure(text = int(turns))
+    climbturns.configure(text = int(turns))
+    kartturns.configure(text = int(turns))
+    solitaireturns.configure(text = int(turns))
+    sudokuturns.configure(text = int(turns))
+    marioturns.configure(text = int(turns))
 
 def calculateturns_trade():
     turns = float(tradeentry.get()) / 0.50
@@ -49,6 +57,15 @@ def calculateturns_trade():
     eggturns.configure(text = int(turns))
     fortniteturns.configure(text = int(turns))
     minecraftturns.configure(text = int(turns))
+    asphaltturns.configure(text = int(turns))
+    royaleturns.configure(text = int(turns))
+    crossyturns.configure(text = int(turns))
+    hillturns.configure(text = int(turns))
+    climbturns.configure(text = int(turns))
+    kartturns.configure(text = int(turns))
+    solitaireturns.configure(text = int(turns))
+    sudokuturns.configure(text = int(turns))
+    marioturns.configure(text = int(turns))
 
 # Elements for Money Conversion
 moneyframe = Frame(conversionframe)
